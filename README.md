@@ -1,7 +1,7 @@
 # notreprojet
 
 A new Flutter project.
-C'est notre projet bite
+C'est notre projet
 Je suis Clément et j'ai bien accès au code. Merci Monsieur.
 
 ## Getting Started
