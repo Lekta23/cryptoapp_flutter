@@ -5,6 +5,7 @@ C'est notre projet
 
 Clément L
 Mathieu B
+Adrien P
 
 ## Getting Started
 
