@@ -2,7 +2,7 @@
 
 A new Flutter project.
 C'est notre projet
-Je suis Clément et j'ai bien accès au code. Merci Monsieur.
+Je suis clément et je push la branche dev
 
 ## Getting Started
 
