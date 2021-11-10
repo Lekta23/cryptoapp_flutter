@@ -7,6 +7,6 @@ class Home extends StatefulWidget {
 
   @override
   State<Home> createState() => Navbar();
-  
+
   
 }
