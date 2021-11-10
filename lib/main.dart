@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notreprojet/navbar.dart';
+import 'package:notreprojet/screens/home/home.dart';
 
 // import 'globals.dart';
 
@@ -14,19 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.green),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const Home(title: 'Flutter Demo Home Page'),
     );
   }
   
-}
-
-
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => Navbar();
 }

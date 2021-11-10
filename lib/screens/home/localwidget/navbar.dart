@@ -1,9 +1,9 @@
 
-import 'globals.dart';
+import 'package:notreprojet/screens/home/home.dart';
+import '../../../globals.dart';
 import 'package:flutter/material.dart';
-import 'package:notreprojet/main.dart';
 
-class Navbar extends State<MyHomePage> {
+class Navbar extends State<Home> {
   // int _counter = 0;
   int _selectedIndex = 0;
   // void _incrementCounter() {
