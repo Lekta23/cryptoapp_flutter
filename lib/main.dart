@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:notreprojet/screens/home/home.dart';
 
+import 'globals.dart';
+
 // import 'globals.dart';
 
 void main() {
@@ -13,9 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.green),
+      theme: ThemeData(scaffoldBackgroundColor: Globals.primaryColor),
       home: const Home(title: 'Flutter Demo Home Page'),
-      
     );
   }
   
