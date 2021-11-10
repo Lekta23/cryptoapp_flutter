@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notreprojet/navabar.dart';
+import 'package:notreprojet/navbar.dart';
 
 // import 'globals.dart';
 
