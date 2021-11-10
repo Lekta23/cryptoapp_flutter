@@ -4,6 +4,8 @@ A new Flutter project.
 C'est notre projet
 Je suis clément et je push la branche dev
 
+Clément L
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
