@@ -1,4 +1,3 @@
-
 import 'package:notreprojet/screens/home/home.dart';
 import '../../../globals.dart';
 import 'package:flutter/material.dart';

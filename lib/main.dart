@@ -19,5 +19,4 @@ class MyApp extends StatelessWidget {
       home: const Home(title: 'Flutter Demo Home Page'),
     );
   }
-  
 }
