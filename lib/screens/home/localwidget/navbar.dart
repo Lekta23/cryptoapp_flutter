@@ -12,7 +12,7 @@ class Navbar extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Globals.secondaryColor,
@@ -38,7 +38,6 @@ class Navbar extends State<Home> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-      ),
-    );
+      ));
   }
 }

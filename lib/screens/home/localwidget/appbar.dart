@@ -1,15 +1,17 @@
-import 'package:notreprojet/screens/home/home.dart';
 import '../../../globals.dart';
 import 'package:flutter/material.dart';
 
-class MyAppBar extends State<Home> {
+class MyAppBar extends StatelessWidget {
+  final Color backgroundColor = Globals.secondaryColor;
+  final Text titre;
+  final AppBar appBar;
+
+  const MyAppBar({Key? key, required this.titre, required this.appBar}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        backgroundColor: Globals.secondaryColor,
-      ),
-    );
-  }
-}
+return AppBar(
+  title: titre,
+  backgroundColor: backgroundColor,
+);
+}}
