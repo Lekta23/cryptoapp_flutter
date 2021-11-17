@@ -16,4 +16,4 @@ return AppBar(
 }
 
   @override
-  Size get preferredSize => Size.fromHeight(40);}
+  Size get preferredSize => const Size.fromHeight(40);}

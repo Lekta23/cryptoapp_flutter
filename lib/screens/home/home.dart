@@ -14,7 +14,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  MyAppBar(titre:  Text('demo'), backgroundColor: Globals.secondaryColor),
+      appBar:  MyAppBar(titre:  Text('Top cryptos'.toUpperCase()), backgroundColor: Globals.secondaryColor),
       bottomNavigationBar: Navbar(ontap: _ontap, selectedIndex: _selectedIndex),
     );
   }
