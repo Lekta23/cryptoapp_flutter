@@ -1,8 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-import '../../../globals.dart';
+import 'package:notreprojet/globals.dart';
 
 class CryptoCard extends StatelessWidget {
   const CryptoCard({Key? key}) : super(key: key);
