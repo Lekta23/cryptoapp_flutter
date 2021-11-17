@@ -2,18 +2,15 @@ import 'package:notreprojet/globals.dart';
 import 'package:notreprojet/screens/home/home.dart';
 import 'package:flutter/material.dart';
 
-class Navbar extends State<Home> {
-  int _selectedIndex = 0;
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+class Navbar extends StatelessWidget {
+ final Function(int) ontap;
+ final int selectedIndex;
+
+  const Navbar({Key? key , required this.ontap, required this.selectedIndex }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
+     return BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Globals.secondaryColor,
         selectedItemColor: Globals.text1,
@@ -36,8 +33,8 @@ class Navbar extends State<Home> {
             label: 'Historique',
           ),
         ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-      ));
+        currentIndex: selectedIndex,
+        onTap: ontap,
+      );
   }
 }

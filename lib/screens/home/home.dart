@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:notreprojet/globals.dart';
+import 'package:notreprojet/screens/home/localwidget/appbar.dart';
 import 'package:notreprojet/screens/home/localwidget/navbar.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key, required this.title}) : super(key: key);
-  final String title;
+  Home({Key? key}) : super(key: key);
 
+  @override
+  _HomeState createState() => _HomeState();
+}
 
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar:  MyAppBar(titre:  Text('demo'), backgroundColor: Globals.secondaryColor),
+      bottomNavigationBar: Navbar(ontap: _ontap, selectedIndex: _selectedIndex),
+    );
+  }
 
-@override
-  State<Home> createState() => Navbar();
-
-  
+  int _selectedIndex = 0;
+  void _ontap(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 }
