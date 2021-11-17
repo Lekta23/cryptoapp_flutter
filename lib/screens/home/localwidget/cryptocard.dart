@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-import '../../../globals.dart';
+import 'package:notreprojet/globals.dart';
 
 class CryptoCard extends StatelessWidget {
   const CryptoCard({Key? key}) : super(key: key);
@@ -17,7 +16,6 @@ class CryptoCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text('TITRE'),
-            
           ],
         ),
       ),
