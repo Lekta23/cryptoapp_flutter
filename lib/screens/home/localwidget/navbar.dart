@@ -32,6 +32,10 @@ class Navbar extends StatelessWidget {
             icon: Icon(Icons.change_circle),
             label: 'Historique',
           ),
+            BottomNavigationBarItem(
+            icon: Icon(Icons.access_time),
+            label: 'Detail',
+          ),
         ],
         currentIndex: selectedIndex,
         onTap: ontap,
