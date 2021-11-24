@@ -16,9 +16,6 @@ class _WalletState extends State<Wallet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: MyAppBar(
-          titre: Text('Wallet'.toUpperCase()),
-          backgroundColor: Globals.secondaryColor),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(top: 20, bottom: 20),
         child: SizedBox(
@@ -33,14 +30,6 @@ class _WalletState extends State<Wallet> {
           ),
         ),
       ),
-      bottomNavigationBar: Navbar(ontap: _ontap, selectedIndex: _selectedIndex),
     );
-  }
-
-  int _selectedIndex = 2;
-  void _ontap(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
   }
 }
