@@ -11,13 +11,32 @@ class Tab1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Wrap(
-        alignment: WrapAlignment.spaceAround,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        children: [
-          const CryptoCard(),
-          const CryptoCard(),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Wrap(
+          alignment: WrapAlignment.spaceAround,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+            const CryptoCard(),
+          ],
+        ),
       ),
     );
   }

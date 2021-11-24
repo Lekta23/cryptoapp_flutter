@@ -17,8 +17,7 @@ class Home extends StatefulWidget {
 }
 
 const tab = [Tab1(), Favoris(), Wallet(), Historique()];
-const titre = ['Top cryptos', 'Vos Favoris', 'Vos cryptos' , 'Historique'];
-
+const titre = ['Top cryptos', 'Vos Favoris', 'Vos cryptos', 'Historique'];
 
 class _HomeState extends State<Home> {
   @override
@@ -27,7 +26,7 @@ class _HomeState extends State<Home> {
       appBar: MyAppBar(
           titre: Text(titre[_selectedIndex].toUpperCase()),
           backgroundColor: Globals.secondaryColor),
-      body: tab[_selectedIndex],
+      body: SingleChildScrollView(child: tab[_selectedIndex]),
       bottomNavigationBar: Navbar(ontap: _ontap, selectedIndex: _selectedIndex),
     );
   }
