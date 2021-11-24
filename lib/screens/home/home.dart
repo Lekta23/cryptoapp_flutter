@@ -9,6 +9,7 @@ import 'package:notreprojet/screens/home/localwidget/cryptocard.dart';
 import 'package:notreprojet/screens/wallet/wallet.dart';
 
 import 'homepage.dart';
+import 'localwidget/floatingbutton.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -28,6 +29,7 @@ class _HomeState extends State<Home> {
           titre: Text(titre[_selectedIndex].toUpperCase()),
           backgroundColor: Globals.secondaryColor),
       body: SingleChildScrollView(child: tab[_selectedIndex]),
+      floatingActionButton : _selectedIndex == 2 ? FloatingButton() : null,
       bottomNavigationBar: Navbar(ontap: _ontap, selectedIndex: _selectedIndex),
     );
   }
@@ -38,4 +40,6 @@ class _HomeState extends State<Home> {
       _selectedIndex = index;
     });
   }
+
+
 }
