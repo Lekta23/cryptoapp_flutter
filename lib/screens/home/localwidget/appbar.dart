@@ -19,13 +19,25 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         PopupMenuButton<int>(
           onSelected: (item) => onSelected(context,item),
           itemBuilder: (context) => [
-            const PopupMenuItem<int>(
+             PopupMenuItem<int>(
               value: 0,
-              child: Text('Settings'),
+              child: Row(
+                children: const [
+                  Icon(Icons.settings, color: Colors.black),
+                  SizedBox(width: 8),
+                  Text("Profile"),
+              ],
+              ),
             ),
-            const PopupMenuItem<int>(
+            PopupMenuItem<int>(
               value: 1,
-              child: Text('Profile'),
+              child: Row(
+                children: const [
+                  Icon(Icons.account_circle, color: Colors.black),
+                  SizedBox(width: 8),
+                  Text("Profile"),
+                ],
+              ),
             ),
           ],
         ),
