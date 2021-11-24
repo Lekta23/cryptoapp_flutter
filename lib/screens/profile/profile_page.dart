@@ -12,7 +12,7 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Profile".toUpperCase()),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Globals.secondaryColor,
       ),
       body: SafeArea(
         child: Column(

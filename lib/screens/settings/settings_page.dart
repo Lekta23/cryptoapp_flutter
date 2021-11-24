@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:settings_ui/settings_ui.dart';
 
+import '../../globals.dart';
+
 class SettingsPage extends StatelessWidget {
   bool isSwitched = false;
   
@@ -10,7 +12,7 @@ class SettingsPage extends StatelessWidget {
     appBar: AppBar(
       title: Text("Settings".toUpperCase()),
       centerTitle: true,
-      backgroundColor: Colors.red,
+      backgroundColor: Globals.secondaryColor,
     ),
     body: SettingsList(
         sections: [
