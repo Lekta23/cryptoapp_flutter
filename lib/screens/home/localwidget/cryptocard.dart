@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:notreprojet/globals.dart';
@@ -9,16 +8,65 @@ class CryptoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 175,
-      height: 250,
+      width: 190,
+      height: 260,
       child: Card(
         color: Globals.secondaryColor,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children:  [
-            Text('TITRE'),
-             CachedNetworkImage(imageUrl: "https://images-ext-1.discordapp.net/external/xUKrP1xK__qPK_XhV1pqYD2V7ynJcuEs3X0vwKOHGB8/https/upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png?width=678&height=678")
-          ],
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.network(
+                  "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png",
+                  height: 64),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text('Bitcoin',
+                    style: TextStyle(
+                      color: Globals.text1,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                    )),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: const [
+                      Text('1d : +1.8 ↗️',
+                          style: TextStyle(
+                            color: Globals.text1,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          )),
+                      SizedBox(height: 4),
+                      Text('1m : -1.9 ↘️',
+                          style: TextStyle(
+                            color: Globals.text1,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          )),
+                      SizedBox(height: 4),
+                      Text('1d : +1.9 ↗️',
+                          style: TextStyle(
+                            color: Globals.text1,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          )),
+                    ],
+                  ),
+                ),
+              ),
+              const Text('56 841,80 USD',
+                  style: TextStyle(
+                    color: Globals.text1,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  )),
+            ],
+          ),
         ),
       ),
     );
