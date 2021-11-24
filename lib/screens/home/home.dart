@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notreprojet/globals.dart';
+import 'package:notreprojet/screens/detail/detail.dart';
 import 'package:notreprojet/screens/favoris/favoris.dart';
 import 'package:notreprojet/screens/historique/historique.dart';
 import 'package:notreprojet/screens/home/localwidget/appbar.dart';
@@ -16,8 +17,8 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-const tab = [Tab1(), Favoris(), Wallet(), Historique()];
-const titre = ['Top cryptos', 'Vos Favoris', 'Vos cryptos', 'Historique'];
+const tab = [Tab1(), Favoris(), Wallet(), Historique(), Detail()];
+const titre = ['Top cryptos', 'Vos Favoris', 'Vos cryptos', 'Historique', 'Detail'];
 
 class _HomeState extends State<Home> {
   @override
