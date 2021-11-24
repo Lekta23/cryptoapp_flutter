@@ -18,16 +18,15 @@ class _WalletState extends State<Wallet> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
-          width: double.infinity,
-          child: Wrap(
-            alignment: WrapAlignment.spaceAround,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            children: [
-              CryptoWallet(),
-              CryptoWallet(),
-            ],
-          ),
+        width: double.infinity,
+        child: Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            CryptoWallet(),
+            CryptoWallet(),
+          ],
         ),
-      );
+      ),
+    );
   }
 }
