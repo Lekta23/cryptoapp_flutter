@@ -25,7 +25,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
                 children: const [
                   Icon(Icons.settings, color: Colors.black),
                   SizedBox(width: 8),
-                  Text("Profile"),
+                  Text("Settings"),
               ],
               ),
             ),
