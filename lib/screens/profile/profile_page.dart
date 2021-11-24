@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'dart:html' as html;
 import '../../globals.dart';
+
+const urladrien = 'https://flutter.io';
+const urlclement = 'https://flutter.io';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -14,7 +17,6 @@ class ProfilePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            
             Card(
               color: Globals.secondaryColor,
               margin:
@@ -25,13 +27,12 @@ class ProfilePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         width: double.infinity,
                         child: Container(
-                          alignment: Alignment(0.0, 2.5),
+                          alignment: const Alignment(0.0, 2.5),
                           child: const CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                "Add you profile DP image URL here "),
+                            backgroundImage: AssetImage('assets/profileimage/cafe.jpg'),
                             radius: 60.0,
                           ),
                         ),
@@ -39,20 +40,20 @@ class ProfilePage extends StatelessWidget {
                     ),
                     Expanded(
                       child: Column(
-                        children: const [
-                          Text(
+                        children: [
+                          const Text(
                             "Adrien",
                             style: TextStyle(
-                                color: Colors.blueAccent,
+                                color: Globals.text1,
                                 fontSize: 22.0,
                                 fontWeight: FontWeight.w600),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 7,
                           ),
                           Text(
-                            "Poulain",
-                            style: TextStyle(
+                            "Poulain".toUpperCase(),
+                            style: const TextStyle(
                                 color: Colors.blueAccent,
                                 fontSize: 22.0,
                                 fontWeight: FontWeight.w600),
@@ -63,33 +64,28 @@ class ProfilePage extends StatelessWidget {
                     Expanded(
                       child: Column(
                         children: [
-                          RaisedButton(
-                            onPressed: () {},
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(80.0),
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Globals.buttonColor)
                             ),
-                            child: Ink(
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                    colors: [Colors.pink, Colors.redAccent]),
-                                borderRadius: BorderRadius.circular(80.0),
+                            
+                            onPressed: (){
+                              const url = 'https://flutter.io';
+                              html.window.open(url, "name");
+                            },
+                            child: Container(
+                              constraints: const BoxConstraints(
+                                maxWidth: 100.0,
+                                maxHeight: 40.0,
                               ),
-                              child: Container(
-                                constraints: const BoxConstraints(
-                                  maxWidth: 100.0,
-                                  maxHeight: 40.0,
-                                ),
-                                alignment: Alignment.center,
-                                child: const Text(
-                                  "Portfolio",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 12.0,
-                                      letterSpacing: 2.0,
-                                      fontWeight: FontWeight.w300),
-                                ),
+                              alignment: Alignment.center,
+                              child: const Text(
+                                "Portfolio",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12.0,
+                                    letterSpacing: 2.0,
+                                    fontWeight: FontWeight.w300),
                               ),
                             ),
                           )
@@ -110,13 +106,12 @@ class ProfilePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         width: double.infinity,
                         child: Container(
-                          alignment: Alignment(0.0, 2.5),
+                          alignment: const Alignment(0.0, 2.5),
                           child: const CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                "Add you profile DP image URL here "),
+                            backgroundImage: AssetImage('assets/profileimage/cafe.jpg'),
                             radius: 60.0,
                           ),
                         ),
@@ -124,20 +119,20 @@ class ProfilePage extends StatelessWidget {
                     ),
                     Expanded(
                       child: Column(
-                        children: const [
-                          Text(
+                        children: [
+                          const Text(
                             "Clément",
                             style: TextStyle(
-                                color: Colors.blueAccent,
+                                color: Globals.text1,
                                 fontSize: 22.0,
                                 fontWeight: FontWeight.w600),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 7,
                           ),
                           Text(
-                            "Lefief",
-                            style: TextStyle(
+                            "Lefief".toUpperCase(),
+                            style: const TextStyle(
                                 color: Colors.blueAccent,
                                 fontSize: 22.0,
                                 fontWeight: FontWeight.w600),
@@ -148,33 +143,27 @@ class ProfilePage extends StatelessWidget {
                     Expanded(
                       child: Column(
                         children: [
-                          RaisedButton(
-                            onPressed: () {},
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(80.0),
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Globals.buttonColor)
                             ),
-                            child: Ink(
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                    colors: [Colors.pink, Colors.redAccent]),
-                                borderRadius: BorderRadius.circular(80.0),
+                            onPressed: (){
+                              const url = 'https://flutter.io';
+                              html.window.open(url, "name");
+                            },
+                            child: Container(
+                              constraints: const BoxConstraints(
+                                maxWidth: 100.0,
+                                maxHeight: 40.0,
                               ),
-                              child: Container(
-                                constraints: const BoxConstraints(
-                                  maxWidth: 100.0,
-                                  maxHeight: 40.0,
-                                ),
-                                alignment: Alignment.center,
-                                child: const Text(
-                                  "Portfolio",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 12.0,
-                                      letterSpacing: 2.0,
-                                      fontWeight: FontWeight.w300),
-                                ),
+                              alignment: Alignment.center,
+                              child: const Text(
+                                "Portfolio",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12.0,
+                                    letterSpacing: 2.0,
+                                    fontWeight: FontWeight.w300),
                               ),
                             ),
                           )
@@ -195,13 +184,12 @@ class ProfilePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                      child: Container(
+                      child: SizedBox(
                         width: double.infinity,
                         child: Container(
-                          alignment: Alignment(0.0, 2.5),
+                          alignment: const Alignment(0.0, 2.5),
                           child: const CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                "Add you profile DP image URL here "),
+                            backgroundImage: AssetImage('assets/profileimage/cafe.jpg'),
                             radius: 60.0,
                           ),
                         ),
@@ -209,20 +197,20 @@ class ProfilePage extends StatelessWidget {
                     ),
                     Expanded(
                       child: Column(
-                        children: const [
-                          Text(
+                        children: [
+                          const Text(
                             "Mathieu",
                             style: TextStyle(
-                                color: Colors.blueAccent,
+                                color: Globals.text1,
                                 fontSize: 22.0,
                                 fontWeight: FontWeight.w600),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 7,
                           ),
                           Text(
-                            "Boidin",
-                            style: TextStyle(
+                            "Boidin".toUpperCase(),
+                            style: const TextStyle(
                                 color: Colors.blueAccent,
                                 fontSize: 22.0,
                                 fontWeight: FontWeight.w600),
@@ -233,33 +221,27 @@ class ProfilePage extends StatelessWidget {
                     Expanded(
                       child: Column(
                         children: [
-                          RaisedButton(
-                            onPressed: () {},
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(80.0),
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Globals.buttonColor)
                             ),
-                            child: Ink(
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                    colors: [Colors.pink, Colors.redAccent]),
-                                borderRadius: BorderRadius.circular(80.0),
+                            onPressed: () {
+                              const url = 'https://flutter.io';
+                              html.window.open(url, "name");
+                            },
+                            child: Container(
+                              constraints: const BoxConstraints(
+                                maxWidth: 100.0,
+                                maxHeight: 40.0,
                               ),
-                              child: Container(
-                                constraints: const BoxConstraints(
-                                  maxWidth: 100.0,
-                                  maxHeight: 40.0,
-                                ),
-                                alignment: Alignment.center,
-                                child: const Text(
-                                  "Portfolio",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 12.0,
-                                      letterSpacing: 2.0,
-                                      fontWeight: FontWeight.w300),
-                                ),
+                              alignment: Alignment.center,
+                              child: const Text(
+                                "Portfolio",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 12.0,
+                                    letterSpacing: 2.0,
+                                    fontWeight: FontWeight.w300),
                               ),
                             ),
                           )
