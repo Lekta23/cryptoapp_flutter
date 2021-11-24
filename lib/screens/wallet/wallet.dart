@@ -15,21 +15,19 @@ class Wallet extends StatefulWidget {
 class _WalletState extends State<Wallet> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.only(top: 20, bottom: 20),
-        child: SizedBox(
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: SizedBox(
           width: double.infinity,
           child: Wrap(
             alignment: WrapAlignment.spaceAround,
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-               CryptoWallet(),
-               CryptoWallet(),
+              CryptoWallet(),
+              CryptoWallet(),
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
