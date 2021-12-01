@@ -15,8 +15,7 @@ class CryptoCard extends StatelessWidget {
         child: Card(
           color: Globals.secondaryColor,
           child: Stack(
-              alignment: Alignment.center,
-
+            alignment: Alignment.center,
             children: [
               Container(
                 padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
@@ -82,13 +81,8 @@ class CryptoCard extends StatelessWidget {
                   onPressed: () {},
                 ),
               ),
-              
             ],
-            
-
-
           ),
-          
         ),
       ),
     );
