@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:notreprojet/globals.dart';
 
 class CryptoCard extends StatelessWidget {
-  Color _favIconColor = Colors.white;
   CryptoCard({Key? key}) : super(key: key);
   
   @override
@@ -21,14 +20,10 @@ class CryptoCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 IconButton(
-                  icon: Icon(Icons.favorite, color: _favIconColor,),
+                  icon: Icon(Icons.favorite, color: Colors.green,),
                   tooltip: 'Add to favourite',
                   onPressed: () {
-                    if(_favIconColor == Colors.white){
-                      _favIconColor = Colors.red;
-                    }else{
-                      _favIconColor = Colors.grey;     
-                    }
+                    
                   },
                 ),
                 Image.network(
