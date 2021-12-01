@@ -15,22 +15,43 @@ class SettingsPage extends StatelessWidget {
       backgroundColor: Globals.secondaryColor,
     ),
     body: SettingsList(
+        backgroundColor: Globals.primaryColor,
         sections: [
           SettingsSection(
             titlePadding: const EdgeInsets.all(20),
-            title: 'General',
+            title: 'Général',
             tiles: [
               SettingsTile(
-                title: 'Language',
-                subtitle: 'English',
+                
+                title: 'Langage',
+                subtitle: 'Français',
                 leading: const Icon(Icons.language),
                 
                 onPressed: (BuildContext context) {
-                  
+                    showModalBottomSheet<void>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Container(
+                          height: 200,
+                          color: Globals.secondaryColor,
+                          child: ListView(
+                            children: const <Widget>[
+                              Card(
+                                child: ListTile(
+                                  leading: FlutterLogo(),
+                                  title: Text('Français'),
+                                  trailing: Icon(Icons.keyboard_arrow_right),
+                                ),
+                              ),
+                            ],
+                          )
+                        );
+                      },
+                    );
                 }
               ),
               SettingsTile.switchTile(
-                title: 'Use System Theme',
+                title: 'Utiliser le thème du sytème',
                 leading: const Icon(Icons.phone_android),
                 switchValue: isSwitched,
                 onToggle: (value) {},
@@ -39,7 +60,7 @@ class SettingsPage extends StatelessWidget {
           ),
           SettingsSection(
             titlePadding: const EdgeInsets.all(20),
-            title: 'Authentication',
+            title: 'Authentification',
             tiles: [
               SettingsTile(
                 title: 'Security',

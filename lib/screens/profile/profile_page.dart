@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'dart:html' as html;
 import '../../globals.dart';
 
 const urladrien = 'https://flutter.io';
@@ -71,7 +70,6 @@ class ProfilePage extends StatelessWidget {
                             
                             onPressed: (){
                               const url = 'https://flutter.io';
-                              html.window.open(url, "name");
                             },
                             child: Container(
                               constraints: const BoxConstraints(
@@ -149,7 +147,6 @@ class ProfilePage extends StatelessWidget {
                             ),
                             onPressed: (){
                               const url = 'https://flutter.io';
-                              html.window.open(url, "name");
                             },
                             child: Container(
                               constraints: const BoxConstraints(
@@ -227,7 +224,6 @@ class ProfilePage extends StatelessWidget {
                             ),
                             onPressed: () {
                               const url = 'https://flutter.io';
-                              html.window.open(url, "name");
                             },
                             child: Container(
                               constraints: const BoxConstraints(
