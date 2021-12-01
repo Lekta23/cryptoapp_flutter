@@ -3,8 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:notreprojet/globals.dart';
 
 class CryptoCard extends StatelessWidget {
-  const CryptoCard({Key? key}) : super(key: key);
-
+  Color _favIconColor = Colors.white;
+  CryptoCard({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,6 +20,17 @@ class CryptoCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                IconButton(
+                  icon: Icon(Icons.favorite, color: _favIconColor,),
+                  tooltip: 'Add to favourite',
+                  onPressed: () {
+                    if(_favIconColor == Colors.white){
+                      _favIconColor = Colors.red;
+                    }else{
+                      _favIconColor = Colors.grey;     
+                    }
+                  },
+                ),
                 Image.network(
                     "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png",
                     height: 64),
