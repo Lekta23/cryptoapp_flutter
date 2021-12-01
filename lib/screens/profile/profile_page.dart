@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../../globals.dart';
 
-const urladrien = 'https://flutter.io';
-const urlclement = 'https://flutter.io';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -30,9 +28,12 @@ class ProfilePage extends StatelessWidget {
                         width: double.infinity,
                         child: Container(
                           alignment: const Alignment(0.0, 2.5),
-                          child: const CircleAvatar(
-                            backgroundImage: AssetImage('assets/profileimage/cafe.jpg'),
-                            radius: 60.0,
+                          child: CircleAvatar(
+                            radius: 50,
+                            child: ClipRRect(
+                              child: Image.asset('profileimage/cafe.jpg',),
+                              borderRadius: BorderRadius.circular(50),),
+                        
                           ),
                         ),
                       ),
