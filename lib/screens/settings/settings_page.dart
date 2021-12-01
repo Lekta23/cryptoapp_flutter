@@ -35,12 +35,70 @@ class SettingsPage extends StatelessWidget {
                           height: 200,
                           color: Globals.secondaryColor,
                           child: ListView(
-                            children: const <Widget>[
+                            children: <Widget>[
                               Card(
                                 child: ListTile(
-                                  leading: FlutterLogo(),
-                                  title: Text('Français'),
-                                  trailing: Icon(Icons.keyboard_arrow_right),
+                                  leading: Container(
+                                    width: 35,
+                                    decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fitWidth,
+                                      image: AssetImage('languageimg/francais.jpg',)
+                                    )
+                                  ),
+                                  
+                                  ),
+                                  
+                                  title: const Text('Français'),
+                                  trailing: const Icon(Icons.keyboard_arrow_right),
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: Container(
+                                    width: 35,
+                                    decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fitWidth,
+                                      image: AssetImage('languageimg/anglais.jpg',)
+                                    )
+                                  ),
+                                  
+                                  ),
+                                  title: const Text('Anglais'),
+                                  trailing: const Icon(Icons.keyboard_arrow_right),
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: Container(
+                                    width: 35,
+                                    decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fitWidth,
+                                      image: AssetImage('languageimg/allemand.png',)
+                                    )
+                                  ),
+                                  
+                                  ),
+                                  title: const Text('Allemand'),
+                                  trailing: const Icon(Icons.keyboard_arrow_right),
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: Container(
+                                    width: 35,
+                                    decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fitWidth,
+                                      image: AssetImage('languageimg/espagnol.jpg',)
+                                    )
+                                  ),
+                                  
+                                  ),
+                                  title: const Text('Espagnol'),
+                                  trailing: const Icon(Icons.keyboard_arrow_right),
                                 ),
                               ),
                             ],
