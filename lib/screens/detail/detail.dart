@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notreprojet/screens/shared/choose_number.dart';
 
 import '../../globals.dart';
 
@@ -42,12 +43,9 @@ class Detail extends StatelessWidget {
                       fontSize: 24,
                       fontWeight: FontWeight.w700)),
             ),
-            const Center(
-              child: Text('Mettre ici un input pour choisir le nombre etc',
-                  style: TextStyle(
-                      color: Globals.text1,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700)),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: choose_number(),
             ),
             const Padding(
               padding: EdgeInsets.all(8.0),
