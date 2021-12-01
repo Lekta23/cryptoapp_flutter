@@ -15,43 +15,122 @@ class SettingsPage extends StatelessWidget {
       backgroundColor: Globals.secondaryColor,
     ),
     body: SettingsList(
+        backgroundColor: Globals.primaryColor,
         sections: [
           SettingsSection(
-            titlePadding: EdgeInsets.all(20),
-            title: 'General',
+            titlePadding: const EdgeInsets.all(20),
+            title: 'Général',
             tiles: [
               SettingsTile(
-                title: 'Language',
-                subtitle: 'English',
-                leading: Icon(Icons.language),
+                
+                title: 'Langage',
+                subtitle: 'Français',
+                leading: const Icon(Icons.language),
                 
                 onPressed: (BuildContext context) {
-                  
+                    showModalBottomSheet<void>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Container(
+                          height: 200,
+                          color: Globals.secondaryColor,
+                          child: ListView(
+                            children: <Widget>[
+                              Card(
+                                child: ListTile(
+                                  leading: Container(
+                                    width: 35,
+                                    decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fitWidth,
+                                      image: AssetImage('languageimg/francais.jpg',)
+                                    )
+                                  ),
+                                  
+                                  ),
+                                  
+                                  title: const Text('Français'),
+                                  trailing: const Icon(Icons.keyboard_arrow_right),
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: Container(
+                                    width: 35,
+                                    decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fitWidth,
+                                      image: AssetImage('languageimg/anglais.jpg',)
+                                    )
+                                  ),
+                                  
+                                  ),
+                                  title: const Text('Anglais'),
+                                  trailing: const Icon(Icons.keyboard_arrow_right),
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: Container(
+                                    width: 35,
+                                    decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fitWidth,
+                                      image: AssetImage('languageimg/allemand.png',)
+                                    )
+                                  ),
+                                  
+                                  ),
+                                  title: const Text('Allemand'),
+                                  trailing: const Icon(Icons.keyboard_arrow_right),
+                                ),
+                              ),
+                              Card(
+                                child: ListTile(
+                                  leading: Container(
+                                    width: 35,
+                                    decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.fitWidth,
+                                      image: AssetImage('languageimg/espagnol.jpg',)
+                                    )
+                                  ),
+                                  
+                                  ),
+                                  title: const Text('Espagnol'),
+                                  trailing: const Icon(Icons.keyboard_arrow_right),
+                                ),
+                              ),
+                            ],
+                          )
+                        );
+                      },
+                    );
                 }
               ),
               SettingsTile.switchTile(
-                title: 'Use System Theme',
-                leading: Icon(Icons.phone_android),
+                title: 'Utiliser le thème du sytème',
+                leading: const Icon(Icons.phone_android),
                 switchValue: isSwitched,
                 onToggle: (value) {},
               ),
             ],
           ),
           SettingsSection(
-            titlePadding: EdgeInsets.all(20),
-            title: 'Authentication',
+            titlePadding: const EdgeInsets.all(20),
+            title: 'Authentification',
             tiles: [
               SettingsTile(
                 title: 'Security',
                 subtitle: 'Fingerprint',
-                leading: Icon(Icons.lock),
+                leading: const Icon(Icons.lock),
                 onPressed: (BuildContext context) {
                   
                 },
               ),
               SettingsTile.switchTile(
                 title: 'Use fingerprint',
-                leading: Icon(Icons.fingerprint),
+                leading: const Icon(Icons.fingerprint),
                 switchValue: true,
                 onToggle: (value) {},
               ),
