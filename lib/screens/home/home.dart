@@ -19,7 +19,13 @@ class Home extends StatefulWidget {
 }
 
 const tab = [Tab1(), Favoris(), Wallet(), Historique(), Detail()];
-const titre = ['Top cryptos', 'Vos Favoris', 'Vos cryptos', 'Historique', 'Detail'];
+const titre = [
+  'Top cryptos',
+  'Vos Favoris',
+  'Vos cryptos',
+  'Historique',
+  'Detail'
+];
 
 class _HomeState extends State<Home> {
   @override
@@ -29,7 +35,8 @@ class _HomeState extends State<Home> {
           titre: Text(titre[_selectedIndex].toUpperCase()),
           backgroundColor: Globals.secondaryColor),
       body: SingleChildScrollView(child: tab[_selectedIndex]),
-      floatingActionButton : _selectedIndex == 2 ? FloatingButton() : null,
+      floatingActionButton: _selectedIndex == 2 ? FloatingButton() : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       bottomNavigationBar: Navbar(ontap: _ontap, selectedIndex: _selectedIndex),
     );
   }
@@ -40,6 +47,4 @@ class _HomeState extends State<Home> {
       _selectedIndex = index;
     });
   }
-
-
 }
