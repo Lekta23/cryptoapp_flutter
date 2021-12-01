@@ -30,14 +30,10 @@ class CryptoCard extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 IconButton(
-                  icon: Icon(Icons.favorite, color: _favIconColor,),
+                  icon: Icon(Icons.favorite, color: Colors.green,),
                   tooltip: 'Add to favourite',
                   onPressed: () {
-                    if(_favIconColor == Colors.white){
-                      _favIconColor = Colors.red;
-                    }else{
-                      _favIconColor = Colors.grey;     
-                    }
+                    
                   },
                 ),
                 Image.network(
