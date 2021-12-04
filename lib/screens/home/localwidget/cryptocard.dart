@@ -1,8 +1,13 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notreprojet/globals.dart';
+import 'package:notreprojet/model/currency.dart';
+import 'package:notreprojet/model/get_currencies.dart';
 import 'package:notreprojet/providers/dio.dart';
 
 class CryptoCard extends ConsumerWidget {
@@ -11,8 +16,11 @@ class CryptoCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Dio dio = ref.read(dioProvider);
-    final Future<Response> future = dio.get("/v1/currencies/ticker?key=589bcce3fe770609a6a9a3cd1992269c513bdf58&interval=1d,30d,365d&convert=EUR&per-page=100&page=1");
+    final Future<Response> future = dio.get("/v1/currencies/ticker?key=589bcce3fe770609a6a9a3cd1992269c513bdf58&interval=1d&convert=EUR&per-page=1&page=1");
     future.then((Response value) {
+
+     GetCurrencies current = GetCurrencies.fromJson(value.data);
+      print(value.toString());
       print(value.statusCode);
     }).catchError((onError){
       print(onError.toString());
