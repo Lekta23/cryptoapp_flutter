@@ -2,10 +2,10 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'currency_data.dart';
 
-part 'getcurrencies.g.dart';
+part 'currency.g.dart';
 
 @JsonSerializable()
-class GetCurrencies{
+class Currency{
 final String id;
 final String name; 
 final String? logo_url;
@@ -20,11 +20,11 @@ final CurrencyData? oneMonth;
 @JsonKey(name : '365d')
 final CurrencyData? oneYear;
 
-  GetCurrencies(this.id, this.name, this.logo_url, this.price, this.rank, this.oneDay, this.oneMonth, this.oneYear);
+  Currency(this.id, this.name, this.logo_url, this.price, this.rank, this.oneDay, this.oneMonth, this.oneYear);
 
-  factory GetCurrencies.fromJson(Map<String, dynamic> json) => _$GetCurrenciesFromJson(json);
+  factory Currency.fromJson(Map<String, dynamic> json) => _$CurrencyFromJson(json);
 
-  Map<String, dynamic> toJson() => _$GetCurrenciesToJson(this);
+  Map<String, dynamic> toJson() => _$CurrencyToJson(this);
 }
 
 

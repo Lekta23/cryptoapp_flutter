@@ -1,13 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'getcurrencies.dart';
+part of 'currency.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-GetCurrencies _$GetCurrenciesFromJson(Map<String, dynamic> json) =>
-    GetCurrencies(
+Currency _$CurrencyFromJson(Map<String, dynamic> json) => Currency(
       json['id'] as String,
       json['name'] as String,
       json['logo_url'] as String?,
@@ -24,8 +23,7 @@ GetCurrencies _$GetCurrenciesFromJson(Map<String, dynamic> json) =>
           : CurrencyData.fromJson(json['365d'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$GetCurrenciesToJson(GetCurrencies instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$CurrencyToJson(Currency instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'logo_url': instance.logo_url,

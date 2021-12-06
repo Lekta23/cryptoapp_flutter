@@ -32,6 +32,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   json_annotation: ^4.4.0
   crypto_font_icons: 1.0.0+1
+  dio: ^4.0.4
+  flutter_riverpod: ^1.0.0
 
  
   
