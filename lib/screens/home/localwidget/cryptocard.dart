@@ -51,10 +51,10 @@ Color _testColor = Colors.grey;
                   children: [
                     Image.network(image, height: 50),
                      Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                           name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Globals.text1,
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
@@ -67,21 +67,21 @@ Color _testColor = Colors.grey;
                         child: Column(
                           children:  [
                             Text('1d : '+ oneDay + '↗️',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 )),
-                            SizedBox(height: 4),
+                            const SizedBox(height: 4),
                             Text('1m :' + oneMonth + '↘️',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 )),
-                            SizedBox(height: 4),
+                            const SizedBox(height: 4),
                             Text('1d :' + oneYear + '↗️',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
@@ -91,7 +91,7 @@ Color _testColor = Colors.grey;
                       ),
                     ),
                      Text(priceString + ' USD',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Globals.text1,
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
@@ -126,8 +126,8 @@ Color _testColor = Colors.grey;
                         },
                       );
                     },
-                    error: (error) => SizedBox(),
-                    loading: (loading) => SizedBox()),
+                    error: (error) => const SizedBox(),
+                    loading: (loading) => const SizedBox()),
               ),
             ],
           ),
