@@ -29,6 +29,12 @@ class CryptoCard extends ConsumerWidget {
 
     var priceInt = double.parse(price);
     var priceString = priceInt.toStringAsFixed(2);
+    var flecheHaut = '↗️';
+    var flecheBas = '↘️';
+
+  
+    
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
