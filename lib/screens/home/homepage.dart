@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../providers/dio_main.dart';
 import 'localwidget/cryptocard.dart';
 
 class Tab1 extends StatelessWidget {
@@ -13,19 +14,7 @@ class Tab1 extends StatelessWidget {
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Wrap(
-          alignment: WrapAlignment.spaceAround,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
-            CryptoCard(),
-            CryptoCard(),
-            CryptoCard(),
-            CryptoCard(),
-            CryptoCard(),
-            CryptoCard(),
-          ],
+        child: const DioMain()
         ),
-      ),
-    );
-  }
-}
+      );
+  }}
