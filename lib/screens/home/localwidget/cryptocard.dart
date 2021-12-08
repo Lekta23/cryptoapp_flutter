@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -7,22 +9,26 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notreprojet/globals.dart';
 import 'package:notreprojet/model/currency.dart';
+import 'package:notreprojet/providers/prefs.provider.dart';
 import 'package:notreprojet/model/get_currencies.dart';
 import 'package:notreprojet/providers/dio.dart';
 
 class CryptoCard extends ConsumerWidget {
-  const CryptoCard({Key? key}) : super(key: key);
+Color favOFF = Colors.grey;
+Color favON = Colors.yellow ;
+Color _testColor = Colors.grey;
+   CryptoCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Dio dio = ref.read(dioProvider);
-    final Future<Response> future = dio.get("/v1/currencies/ticker?key=589bcce3fe770609a6a9a3cd1992269c513bdf58&interval=1d&convert=EUR&per-page=1&page=1");
+    final Future<Response> future = dio.get(
+        "/v1/currencies/ticker?key=589bcce3fe770609a6a9a3cd1992269c513bdf58&interval=1d&convert=EUR&per-page=1&page=1");
     future.then((Response value) {
-
-     GetCurrencies current = GetCurrencies.fromJson(value.data);
+      GetCurrencies current = GetCurrencies.fromJson(value.data);
       print(value.toString());
       print(value.statusCode);
-    }).catchError((onError){
+    }).catchError((onError) {
       print(onError.toString());
     });
     return Padding(
@@ -93,11 +99,33 @@ class CryptoCard extends ConsumerWidget {
               ),
               Align(
                 alignment: Alignment.topRight,
-                child: IconButton(
-                  icon: const Icon(Icons.favorite, color: Colors.green,),
-                  tooltip: 'Add to favourite',
-                  onPressed: () {},
-                ),
+                child: ref.watch(favoritesProvider).map(
+                    data: (data) {
+                      return IconButton(
+                        icon: Icon(
+                          Icons.favorite,
+                          color: _testColor,
+                        ),
+                        tooltip: 'Add to favourite',
+                        onPressed: () async {
+                          String cryptoName = 'AAAA';
+                          final preferences =
+                              await StreamingSharedPreferences.instance;
+                              preferences.setString('favorites', cryptoName);
+                              if(preferences != cryptoName && _testColor == favOFF ){
+                                _testColor = favON;
+                              } else {
+                                if(preferences != cryptoName && _testColor== favON){
+                                  _testColor = favOFF;
+                                }
+                              }
+                                
+                              ref.refresh(favoritesProvider);
+                        },
+                      );
+                    },
+                    error: (error) => SizedBox(),
+                    loading: (loading) => SizedBox()),
               ),
             ],
           ),
