@@ -43,10 +43,6 @@ class Detail extends StatelessWidget {
                       fontSize: 24,
                       fontWeight: FontWeight.w700)),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: choose_number(),
-            ),
             const Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
