@@ -13,21 +13,31 @@ import 'package:notreprojet/model/currency.dart';
 import 'package:notreprojet/providers/prefs.provider.dart';
 import 'package:notreprojet/model/currency_data.dart';
 import 'package:notreprojet/model/get_currencies.dart';
+import 'package:notreprojet/screens/home/homepage.dart';
 import 'package:notreprojet/providers/dio.dart';
 
 class CryptoCard extends ConsumerWidget {
-Color favOFF = Colors.grey;
-Color favON = Colors.yellow ;
-Color _testColor = Colors.grey;
-   final   name;
-   final   image;
-   final oneDay;
-   final oneMonth;
-   final oneYear;
+  Color favOFF = Colors.grey;
+  Color favON = Colors.yellow;
+  Color _testColor = Colors.grey;
+  final name;
+  final image;
+  final oneDay;
+  final oneMonth;
+  final oneYear;
   final price;
-   
+  final listFav;
 
-   CryptoCard({Key? key,  required this.name, required this.image,required this.oneDay , required this.oneMonth, required this.oneYear, required this.price}) : super(key: key);
+  CryptoCard(
+      {Key? key,
+      required this.name,
+      required this.image,
+      required this.oneDay,
+      required this.oneMonth,
+      required this.oneYear,
+      required this.price,
+      required this.listFav})
+      : super(key: key);
 
   final List<Widget> _painters = <Widget>[];
   @override
@@ -36,9 +46,6 @@ Color _testColor = Colors.grey;
     var priceString = priceInt.toStringAsFixed(2);
     var flecheHaut = '↗️';
     var flecheBas = '↘️';
-
-  
-    
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -56,10 +63,9 @@ Color _testColor = Colors.grey;
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Image.network(image, height: 50),
-                     Padding(
+                    Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                          name,
+                      child: Text(name,
                           style: const TextStyle(
                             color: Globals.text1,
                             fontSize: 18,
@@ -71,8 +77,8 @@ Color _testColor = Colors.grey;
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
-                          children:  [
-                            Text('1d : '+ oneDay + '↗️',
+                          children: [
+                            Text('1d : ' + oneDay + '↗️',
                                 style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
@@ -96,7 +102,7 @@ Color _testColor = Colors.grey;
                         ),
                       ),
                     ),
-                     Text(priceString + ' USD',
+                    Text(priceString + ' USD',
                         style: const TextStyle(
                           color: Globals.text1,
                           fontSize: 18,
@@ -116,19 +122,23 @@ Color _testColor = Colors.grey;
                         ),
                         tooltip: 'Add to favourite',
                         onPressed: () async {
-                          String cryptoName = 'AAAA';
                           final preferences =
                               await StreamingSharedPreferences.instance;
-                              preferences.setString('favorites', cryptoName);
-                              if(preferences != cryptoName && _testColor == favOFF ){
-                                _testColor = favON;
-                              } else {
-                                if(preferences != cryptoName && _testColor== favON){
-                                  _testColor = favOFF;
-                                }
-                              }
-                                
-                              ref.refresh(favoritesProvider);
+                          preferences.setString('favorites', name);
+                          if (preferences != name &&
+                              _testColor == favOFF) {
+                            _testColor = favON;
+                            listFav.add(name);
+                            
+                          } else {
+                            if (preferences != name &&
+                                _testColor == favON) {
+                              _testColor = favOFF;
+                              listFav.remove(name);
+                            }
+                          }
+                          print(listFav);
+                          ref.refresh(favoritesProvider);
                         },
                       );
                     },
