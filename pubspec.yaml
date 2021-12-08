@@ -34,6 +34,7 @@ dependencies:
   crypto_font_icons: 1.0.0+1
   dio: ^4.0.4
   flutter_riverpod: ^1.0.0
+  flutter_svg: ^1.0.0
   babstrap_settings_screen : "^0.1.1"
   streaming_shared_preferences: ^2.0.0
 
