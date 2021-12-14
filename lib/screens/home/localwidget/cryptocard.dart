@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:dio/dio.dart';
+import 'package:image/image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,7 +24,7 @@ Color _testColor = Colors.grey;
    final oneDay;
    final oneMonth;
    final oneYear;
-  final price;
+   final price;
    
 
    CryptoCard({Key? key,  required this.name, required this.image,required this.oneDay , required this.oneMonth, required this.oneYear, required this.price}) : super(key: key);
@@ -36,8 +36,18 @@ Color _testColor = Colors.grey;
     var priceString = priceInt.toStringAsFixed(2);
     var flecheHaut = '↗️';
     var flecheBas = '↘️';
+    var image = this.image;
+    PngDecoder png = PngDecoder();
+    JpegDecoder jpg = JpegDecoder();
 
-  
+      String AfficheFleche(String index) {
+      var  indexInt =  double.parse(index);
+      if (indexInt > 0) {
+        return flecheHaut;
+      }else{
+        return flecheBas;
+      }
+  }
     
 
     return Padding(
@@ -55,7 +65,12 @@ Color _testColor = Colors.grey;
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.network(image, height: 50),
+                    // if(png.isValidFile(this.image) || jpg.isValidFile(this.image)) {
+                      
+                    // }
+                    // else {    
+                    //   SvgPicture.network(image, height: 50),
+                    // }
                      Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
@@ -72,21 +87,21 @@ Color _testColor = Colors.grey;
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children:  [
-                            Text('1d : '+ oneDay + '↗️',
+                            Text('1d : '+ oneDay + AfficheFleche(oneDay),
                                 style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 )),
                             const SizedBox(height: 4),
-                            Text('1m :' + oneMonth + '↘️',
+                            Text('1m : ' + oneMonth + AfficheFleche(oneMonth),
                                 style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 )),
                             const SizedBox(height: 4),
-                            Text('1d :' + oneYear + '↗️',
+                            Text('1 : ' + oneYear + AfficheFleche(oneYear),
                                 style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
