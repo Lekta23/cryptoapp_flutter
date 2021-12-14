@@ -38,6 +38,8 @@ dependencies:
   babstrap_settings_screen : "^0.1.1"
   streaming_shared_preferences: ^2.0.0
 
+  shared_preferences: ^2.0.9
+
  
   
 dev_dependencies:

@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notreprojet/model/currency.dart';
 import 'package:notreprojet/providers/dio.dart';
 import 'package:notreprojet/providers/dio_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:notreprojet/screens/home/localwidget/cryptocard.dart';
 
 class DioMain extends ConsumerWidget {
@@ -34,10 +35,11 @@ Widget _OnError(error) {
 
 Widget _OnData(data) {
     print(data);
+    List<String> favoriteList = [];
      final List<Currency> tab = data.value; 
       return Wrap(
           alignment: WrapAlignment.spaceAround,
           crossAxisAlignment: WrapCrossAlignment.center,
-          children: tab.map((data) => CryptoCard(name: data.name, image: data.logo_url, oneDay:data.oneDay?.price_change_pct, oneMonth:data.oneMonth?.price_change_pct, oneYear:data.oneYear?.price_change_pct, price:data.price)).toList()
+          children: tab.map((data) => CryptoCard(name: data.name, image: data.logo_url, oneDay:data.oneDay?.price_change_pct, oneMonth:data.oneMonth?.price_change_pct, oneYear:data.oneYear?.price_change_pct, price:data.price, listFav: favoriteList)).toList()
   ); 
     }
