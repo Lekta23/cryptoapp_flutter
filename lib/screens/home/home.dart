@@ -18,7 +18,7 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-const tab = [Tab1(), Favoris(), Wallet(), Historique(), Detail()];
+final tab = [Tab1(),  Favoris(), Wallet(), Historique(), Detail()];
 const titre = [
   'Top cryptos',
   'Vos Favoris',
