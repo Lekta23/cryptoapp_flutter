@@ -141,23 +141,30 @@ class CryptoCard extends ConsumerWidget {
                         tooltip: 'Add to favourite',
                         onPressed: () async {
                           SharedPreferences prefs = await SharedPreferences.getInstance();
-                          
+                          var list = prefs.getStringList('listFav');
                           final preferences =
                               await StreamingSharedPreferences.instance;
                           preferences.setString('favorites', name);
+                          if(list != null){
+                            for(var i=0;i<list.length;i++){
+                              if (list[i].contains(name) == true){
+                                // TODO
+                              }
+                            }
+                          }
                           if (preferences != name &&
                               _testColor == favOFF) {
                             _testColor = favON;
-                            listFav.add(name);
+                            
+                            listFav.add(name + " true");
                             prefs.setStringList('listFav', listFav);
-                            
-                            
+                      
                           } else {
                             if (preferences != name &&
                                 _testColor == favON) {
                               _testColor = favOFF;
                               
-                              listFav.remove(name);
+                              listFav.remove(name + " true");
                               prefs.setStringList('listFav', listFav);
                             }
                           }
