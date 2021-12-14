@@ -17,9 +17,9 @@ import 'package:notreprojet/screens/home/homepage.dart';
 import 'package:notreprojet/providers/dio.dart';
 
 class CryptoCard extends ConsumerWidget {
-  Color favOFF = Colors.grey;
-  Color favON = Colors.yellow;
-  Color _testColor = Colors.grey;
+  MaterialColor favOFF = Colors.grey;
+  MaterialColor favON = Colors.yellow;
+  MaterialColor _testColor = Colors.grey;
   final name;
   final image;
   final oneDay;
