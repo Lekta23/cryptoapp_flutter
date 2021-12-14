@@ -10,11 +10,11 @@ class Tab1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       width: double.infinity,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: const DioMain()
+        padding: EdgeInsets.all(8.0),
+        child: DioMain()
         ),
       );
   }}

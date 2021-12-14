@@ -1,22 +1,13 @@
-import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notreprojet/globals.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:notreprojet/model/currency.dart';
 import 'package:notreprojet/providers/prefs.provider.dart';
-import 'package:notreprojet/model/currency_data.dart';
-import 'package:notreprojet/model/get_currencies.dart';
-import 'package:notreprojet/screens/home/homepage.dart';
-import 'package:notreprojet/providers/dio.dart';
 import 'package:path/path.dart';
-import 'package:image/image.dart' as img;
 
 class CryptoCard extends ConsumerWidget {
   MaterialColor favOFF = Colors.grey;
