@@ -70,9 +70,9 @@ class CryptoCard extends ConsumerWidget {
   affichageImage(image){
      var type =  extension(image);
         if (type == 'jpg' ||  type == 'png') {
-          return Image.network(image);
+          return Image.network(image, height: 50,);
         } else{
-          return SvgPicture.network(image);
+          return SvgPicture.network(image, height: 50,);
         }
   }
 
