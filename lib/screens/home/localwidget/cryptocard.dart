@@ -36,42 +36,44 @@ class CryptoCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var priceInt = double.parse(price);
     var priceString = priceInt.toStringAsFixed(2);
+    var oneYearDouble = double.parse(oneYear);
+    var oneYearString = oneYearDouble.toStringAsFixed(2);
     var flecheHaut = '↗️';
     var flecheBas = '↘️';
- 
 
-      String AfficheFleche(String index) {
-      var  indexInt =  double.parse(index);
+    String AfficheFleche(String index) {
+      var indexInt = double.parse(index);
       if (indexInt > 0) {
         return flecheHaut;
-      }else{
+      } else {
         return flecheBas;
       }
-  }
+    }
 
+    String extension(image) {
+      File file = new File(image);
+      String base = basename(file.path);
+      var laBase = base.split('.');
+      return laBase[1];
+    }
 
-  String extension(image){
-    File file = new File(image);
-  String base = basename(file.path);
-  var laBase = base.split('.');
-  return laBase[1];
-  }
-
-  afficheImage(images){
-     var type =  extension(images);
-        if (type == 'jpg' ||  type == 'png' || type == 'jpeg') {
-          return Image.network(images, height: 34,);
-       
-        } else{
-         return SvgPicture.network(images, height: 35);
-        }
-  }
+    afficheImage(images) {
+      var type = extension(images);
+      if (type == 'jpg' || type == 'png' || type == 'jpeg') {
+        return Image.network(
+          images,
+          height: 48,
+        );
+      } else {
+        return SvgPicture.network(images, height: 48);
+      }
+    }
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
         width: 190,
-        height: 260,
+        height: 280,
         child: Card(
           color: Globals.secondaryColor,
           child: Stack(
@@ -82,10 +84,14 @@ class CryptoCard extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    afficheImage(image),
-                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: afficheImage(image),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(6.0),
                       child: Text(name,
+                          overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                             color: Globals.text1,
                             fontSize: 18,
@@ -97,22 +103,30 @@ class CryptoCard extends ConsumerWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
-                          children:  [
-                            Text('1d : '+ oneDay + AfficheFleche(oneDay),
+                          children: [
+                            Text('1D: ' + oneDay + '% ' + AfficheFleche(oneDay),
                                 style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 )),
                             const SizedBox(height: 4),
-                            Text('1m : ' + oneMonth + AfficheFleche(oneMonth),
+                            Text(
+                                '1M: ' +
+                                    oneMonth +
+                                    '% ' +
+                                    AfficheFleche(oneMonth),
                                 style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 )),
                             const SizedBox(height: 4),
-                            Text('1y : ' + oneYear + AfficheFleche(oneYear),
+                            Text(
+                                '1Y: ' +
+                                    oneYearString +
+                                    '% ' +
+                                    AfficheFleche(oneYear),
                                 style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
@@ -142,23 +156,20 @@ class CryptoCard extends ConsumerWidget {
                         ),
                         tooltip: 'Add to favourite',
                         onPressed: () async {
-                          SharedPreferences prefs = await SharedPreferences.getInstance();
-                          
+                          SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+
                           final preferences =
                               await StreamingSharedPreferences.instance;
                           preferences.setString('favorites', name);
-                          if (preferences != name &&
-                              _testColor == favOFF) {
+                          if (preferences != name && _testColor == favOFF) {
                             _testColor = favON;
                             listFav.add(name);
                             prefs.setStringList('listFav', listFav);
-                            
-                            
                           } else {
-                            if (preferences != name &&
-                                _testColor == favON) {
+                            if (preferences != name && _testColor == favON) {
                               _testColor = favOFF;
-                              
+
                               listFav.remove(name);
                               prefs.setStringList('listFav', listFav);
                             }
@@ -178,6 +189,4 @@ class CryptoCard extends ConsumerWidget {
       ),
     );
   }
-
-  
 }
