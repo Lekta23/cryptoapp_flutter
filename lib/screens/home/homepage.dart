@@ -14,7 +14,8 @@ class Tab1 extends StatelessWidget {
       width: double.infinity,
       child: Padding(
         padding: EdgeInsets.all(8.0),
-        child: DioMain()
+        child: DioMain(),
         ),
       );
+      
   }}

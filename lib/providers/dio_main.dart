@@ -39,12 +39,7 @@ Widget _OnData(data) {
       crossAxisAlignment: WrapCrossAlignment.center,
       children: tab
           .map((data) => CryptoCard(
-              name: data.name,
-              image: data.logo_url,
-              oneDay: data.oneDay?.price_change_pct,
-              oneMonth: data.oneMonth?.price_change_pct,
-              oneYear: data.oneYear?.price_change_pct,
-              price: data.price,
-              listFav: favoriteList))
+              data: data
+              ))
           .toList());
 }
