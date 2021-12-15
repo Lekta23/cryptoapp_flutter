@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:notreprojet/screens/detail/detail.dart';
 import 'package:notreprojet/screens/home/home.dart';
 
 import 'globals.dart';
@@ -16,8 +17,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(scaffoldBackgroundColor: Globals.primaryColor),
+      theme: ThemeData(
+          scaffoldBackgroundColor: Globals.primaryColor,
+          fontFamily: 'NotoSans'),
       home: ProviderScope(child: Home()),
+      routes: {
+    '/details': (context) =>
+        const Detail(),
+  }
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:notreprojet/model/currency.dart';
 import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,34 +8,33 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:notreprojet/providers/prefs.provider.dart';
 import 'package:path/path.dart';
 
-class CryptoCard extends ConsumerWidget {
-  CryptoCard(
-      {Key? key,
-      required this.name,
-      required this.image,
-      required this.oneDay,
-      required this.oneMonth,
-      required this.oneYear,
-      required this.price})
-      : super(key: key);
+import '../../detail/detail.dart';
 
+class CryptoCard extends ConsumerWidget {
   MaterialColor favOFF = Colors.grey;
   MaterialColor favON = Colors.yellow;
+  MaterialColor _testColor = Colors.grey;
+  final Currency data;
 
-  final name;
-  final image;
-  final oneDay;
-  final oneMonth;
-  final oneYear;
-  final price;
+  CryptoCard({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
+
 
   final List<Widget> _painters = <Widget>[];
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var priceInt = double.parse(price);
+   MaterialColor favOFF = Colors.grey;
+  MaterialColor favON = Colors.yellow;
+    var priceInt = double.parse(data.price);
     var priceString = priceInt.toStringAsFixed(2);
+    var oneYearDouble = double.parse(data.oneYear!.price_change_pct.toString());
+    var oneYearString = oneYearDouble.toStringAsFixed(2);
     var flecheHaut = '↗️';
     var flecheBas = '↘️';
+    var name = data.name;
+    List<String> listFav = [];
 
     String AfficheFleche(String index) {
       var indexInt = double.parse(index);
@@ -64,56 +64,71 @@ class CryptoCard extends ConsumerWidget {
       }
     }
 
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: SizedBox(
-        width: 190,
-        height: 260,
-        child: Card(
-          color: Globals.secondaryColor,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    afficheImage(image),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(name,
-                          style: const TextStyle(
-                            color: Globals.text1,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                          )),
-                    ),
+    return GestureDetector(
+      onTap: () {
+        _onTap(data, context);
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SizedBox(
+          width: 190,
+          height: 260,
+          child: Card(
+            color: Globals.secondaryColor,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      afficheImage(data.logo_url),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(data.name,
+                            style: const TextStyle(
+                              color: Globals.text1,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                            )),
+                      ),
                     Container(
                       padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: [
-                            Text('1d : ' + oneDay + AfficheFleche(oneDay),
+                            Text('1D: ' + data.oneDay!.price_change_pct.toString() + '% ' + AfficheFleche(data.oneDay!.price_change_pct.toString()),
                                 style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
+                                  fontFamily: 'RobotoMono',
                                 )),
                             const SizedBox(height: 4),
-                            Text('1m : ' + oneMonth + AfficheFleche(oneMonth),
+                            Text(
+                                '1M: ' +
+                                    data.oneMonth!.price_change_pct.toString() +
+                                    '% ' +
+                                    AfficheFleche(data.oneMonth!.price_change_pct.toString()),
                                 style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
+                                  fontFamily: 'RobotoMono',
                                 )),
                             const SizedBox(height: 4),
-                            Text('1y : ' + oneYear + AfficheFleche(oneYear),
+                            Text(
+                                '1Y: ' +
+                                    oneYearString +
+                                    '% ' +
+                                    AfficheFleche(data.oneYear!.price_change_pct.toString()),
                                 style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
+                                  fontFamily: 'RobotoMono',
                                 )),
                           ],
                         ),
@@ -124,6 +139,7 @@ class CryptoCard extends ConsumerWidget {
                           color: Globals.text1,
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
+                          fontFamily: 'RobotoMono',
                         )),
                   ],
                 ),
@@ -135,9 +151,7 @@ class CryptoCard extends ConsumerWidget {
                       return IconButton(
                         icon: Icon(
                           Icons.favorite,
-                          color: data.value.contains(name)
-                              ? favON
-                              : favOFF,
+                          color: data.value.contains(name) ? favON : favOFF,
                         ),
                         tooltip: 'Add to favourite',
                         onPressed: () async {
@@ -163,6 +177,14 @@ class CryptoCard extends ConsumerWidget {
           ),
         ),
       ),
+    ));
+  }
+
+  void _onTap(Currency currency, context) {
+    Navigator.pushNamed(
+      context,
+      '/details',
+      arguments: currency,
     );
   }
 }
