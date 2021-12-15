@@ -29,6 +29,10 @@ Widget _OnError(error) {
 
 Widget _OnData(data) {
   final List<Currency> tab = data.value;
+
+  if (null == tab) {
+    return const Text('Impossible de charger les données');
+  }
   return Wrap(
       alignment: WrapAlignment.spaceAround,
       crossAxisAlignment: WrapCrossAlignment.center,
