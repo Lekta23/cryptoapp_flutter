@@ -9,17 +9,6 @@ import 'package:notreprojet/providers/prefs.provider.dart';
 import 'package:path/path.dart';
 
 class CryptoCard extends ConsumerWidget {
-  MaterialColor favOFF = Colors.grey;
-  MaterialColor favON = Colors.yellow;
-  MaterialColor _testColor = Colors.grey;
-  final name;
-  final image;
-  final oneDay;
-  final oneMonth;
-  final oneYear;
-  final price;
-  final listFav;
-
   CryptoCard(
       {Key? key,
       required this.name,
@@ -27,9 +16,18 @@ class CryptoCard extends ConsumerWidget {
       required this.oneDay,
       required this.oneMonth,
       required this.oneYear,
-      required this.price,
-      required this.listFav})
+      required this.price})
       : super(key: key);
+
+  MaterialColor favOFF = Colors.grey;
+  MaterialColor favON = Colors.yellow;
+
+  final name;
+  final image;
+  final oneDay;
+  final oneMonth;
+  final oneYear;
+  final price;
 
   final List<Widget> _painters = <Widget>[];
   @override
@@ -152,31 +150,24 @@ class CryptoCard extends ConsumerWidget {
                       return IconButton(
                         icon: Icon(
                           Icons.favorite,
-                          color: _testColor,
+                          color: data.value.contains(name)
+                              ? favON
+                              : favOFF,
                         ),
                         tooltip: 'Add to favourite',
                         onPressed: () async {
-                          SharedPreferences prefs =
-                              await SharedPreferences.getInstance();
-
                           final preferences =
                               await StreamingSharedPreferences.instance;
-                          preferences.setString('favorites', name);
-                          if (preferences != name && _testColor == favOFF) {
-                            _testColor = favON;
-                            listFav.add(name);
-                            prefs.setStringList('listFav', listFav);
+                          Preference<List<String>> preflist = preferences
+                              .getStringList('listFav', defaultValue: []);
+                          final List<String> list = preflist.getValue();
+                          if (list.indexOf(name) < 0) {
+                            list.add(name);
                           } else {
-                            if (preferences != name && _testColor == favON) {
-                              _testColor = favOFF;
-
-                              listFav.remove(name);
-                              prefs.setStringList('listFav', listFav);
-                            }
+                            list.remove(name);
                           }
-                          print(listFav);
+                          preferences.setStringList('listFav', list);
                           ref.refresh(favoritesProvider);
-                          prefs.getStringList('listFav');
                         },
                       );
                     },

@@ -28,8 +28,7 @@ Widget _OnError(error) {
 }
 
 Widget _OnData(data) {
-  List<String> favoriteList = [];
-  final List<Currency>? tab = data.value;
+  final List<Currency> tab = data.value;
 
   if (null == tab) {
     return const Text('Impossible de charger les données');
@@ -44,7 +43,6 @@ Widget _OnData(data) {
               oneDay: data.oneDay?.price_change_pct,
               oneMonth: data.oneMonth?.price_change_pct,
               oneYear: data.oneYear?.price_change_pct,
-              price: data.price,
-              listFav: favoriteList))
+              price: data.price))
           .toList());
 }
