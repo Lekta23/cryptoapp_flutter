@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:notreprojet/model/currency.dart';
+import 'package:notreprojet/screens/home/localwidget/appbar.dart';
 import 'package:notreprojet/screens/shared/choose_number.dart';
 import 'package:path/path.dart';
 
@@ -39,7 +40,7 @@ class Detail extends ConsumerWidget {
     var priceString = priceInt.toStringAsFixed(2);
 
     return Scaffold(
-        appBar: AppBar(),
+        appBar:  MyAppBar( titre: Text(args.name.toUpperCase()), backgroundColor: Globals.secondaryColor),
         body: Container(
           child: Center(
             child: Column(
@@ -82,6 +83,6 @@ class Detail extends ConsumerWidget {
               ],
             ),
           ),
-        ));
+        ), backgroundColor: null,);
   }
 }
