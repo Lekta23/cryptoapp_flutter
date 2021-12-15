@@ -94,6 +94,7 @@ class CryptoCard extends ConsumerWidget {
                             color: Globals.text1,
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
+                            fontFamily: 'RobotoMono',
                           )),
                     ),
                     Container(
@@ -107,6 +108,7 @@ class CryptoCard extends ConsumerWidget {
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
+                                  fontFamily: 'RobotoMono',
                                 )),
                             const SizedBox(height: 4),
                             Text(
@@ -118,6 +120,7 @@ class CryptoCard extends ConsumerWidget {
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
+                                  fontFamily: 'RobotoMono',
                                 )),
                             const SizedBox(height: 4),
                             Text(
@@ -129,6 +132,7 @@ class CryptoCard extends ConsumerWidget {
                                   color: Globals.text1,
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
+                                  fontFamily: 'RobotoMono',
                                 )),
                           ],
                         ),
@@ -139,6 +143,7 @@ class CryptoCard extends ConsumerWidget {
                           color: Globals.text1,
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
+                          fontFamily: 'RobotoMono',
                         )),
                   ],
                 ),
@@ -150,9 +155,7 @@ class CryptoCard extends ConsumerWidget {
                       return IconButton(
                         icon: Icon(
                           Icons.favorite,
-                          color: data.value.contains(name)
-                              ? favON
-                              : favOFF,
+                          color: data.value.contains(name) ? favON : favOFF,
                         ),
                         tooltip: 'Add to favourite',
                         onPressed: () async {
