@@ -23,7 +23,6 @@ class _WalletState extends State<Wallet> {
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             CryptoWallet(),
-            CryptoWallet(),
           ],
         ),
       ),
