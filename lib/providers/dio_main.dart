@@ -1,11 +1,7 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notreprojet/model/currency.dart';
-import 'package:notreprojet/providers/dio.dart';
 import 'package:notreprojet/providers/dio_provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:notreprojet/screens/home/localwidget/cryptocard.dart';
 
 class DioMain extends ConsumerWidget {

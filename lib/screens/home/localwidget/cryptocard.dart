@@ -1,20 +1,12 @@
-import 'dart:convert';
-import 'dart:developer';
+import 'dart:io';
 import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:dio/dio.dart';
-import 'package:image/image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notreprojet/globals.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:notreprojet/model/currency.dart';
 import 'package:notreprojet/providers/prefs.provider.dart';
-import 'package:notreprojet/model/currency_data.dart';
-import 'package:notreprojet/model/get_currencies.dart';
-import 'package:notreprojet/screens/home/homepage.dart';
-import 'package:notreprojet/providers/dio.dart';
+import 'package:path/path.dart';
 
 class CryptoCard extends ConsumerWidget {
   MaterialColor favOFF = Colors.grey;
@@ -46,9 +38,7 @@ class CryptoCard extends ConsumerWidget {
     var priceString = priceInt.toStringAsFixed(2);
     var flecheHaut = '↗️';
     var flecheBas = '↘️';
-    var image = this.image;
-    PngDecoder png = PngDecoder();
-    JpegDecoder jpg = JpegDecoder();
+ 
 
       String AfficheFleche(String index) {
       var  indexInt =  double.parse(index);
@@ -58,6 +48,24 @@ class CryptoCard extends ConsumerWidget {
         return flecheBas;
       }
   }
+
+
+  String extension(image){
+    File file = new File(image);
+  String base = basename(file.path);
+  var laBase = base.split('.');
+  return laBase[1];
+  }
+
+  affichageImage(image){
+     var type =  extension(image);
+        if (type == 'jpg' ||  type == 'png') {
+          return Image.network(image, height: 50,);
+        } else{
+          return SvgPicture.network(image, height: 50,);
+        }
+  }
+
     
 
     return Padding(
@@ -75,12 +83,7 @@ class CryptoCard extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // if(png.isValidFile(this.image) || jpg.isValidFile(this.image)) {
-                      
-                    // }
-                    // else {    
-                    //   SvgPicture.network(image, height: 50),
-                    // }
+                    affichageImage(image),
                      Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(name,
@@ -183,4 +186,6 @@ class CryptoCard extends ConsumerWidget {
       ),
     );
   }
+
+  
 }
