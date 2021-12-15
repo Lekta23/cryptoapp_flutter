@@ -9,8 +9,6 @@ final  testDioProvider = FutureProvider<List<Currency>?>((ref) async {
   try{
     final Response response =  await dio.get("/v1/currencies/ticker?key=589bcce3fe770609a6a9a3cd1992269c513bdf58&interval=1d,30d,365d&convert=EUR&per-page=50&page=1");
        List<dynamic> currency = response.data;
-       print(currency);
-        print(response.statusCode);
        List<Currency> tab = [];
 
       for (var json in response.data) {

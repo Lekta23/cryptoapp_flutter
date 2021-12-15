@@ -9,33 +9,36 @@ class DioMain extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ref.watch(testDioProvider).map(data: _OnData, error: _OnError, loading: _OnLoading);
-
-    
+    return ref
+        .watch(testDioProvider)
+        .map(data: _OnData, error: _OnError, loading: _OnLoading);
   }
-
 }
 
 Widget _OnLoading(loading) {
   return Container(
-      color: Colors.green,
-    );
+    color: Colors.green,
+  );
 }
 
 Widget _OnError(error) {
-    return Container(
-      color: Colors.red,
-    );
+  return Container(
+    color: Colors.red,
+  );
 }
 
-
 Widget _OnData(data) {
-    print(data);
-    List<String> favoriteList = [];
-     final List<Currency> tab = data.value; 
-      return Wrap(
-          alignment: WrapAlignment.spaceAround,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: tab.map((data) => CryptoCard(name: data.name, image: data.logo_url, oneDay:data.oneDay?.price_change_pct, oneMonth:data.oneMonth?.price_change_pct, oneYear:data.oneYear?.price_change_pct, price:data.price, listFav: favoriteList)).toList()
-  ); 
-    }
+  final List<Currency> tab = data.value;
+  return Wrap(
+      alignment: WrapAlignment.spaceAround,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: tab
+          .map((data) => CryptoCard(
+              name: data.name,
+              image: data.logo_url,
+              oneDay: data.oneDay?.price_change_pct,
+              oneMonth: data.oneMonth?.price_change_pct,
+              oneYear: data.oneYear?.price_change_pct,
+              price: data.price))
+          .toList());
+}

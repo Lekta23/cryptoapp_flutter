@@ -9,17 +9,6 @@ import 'package:notreprojet/providers/prefs.provider.dart';
 import 'package:path/path.dart';
 
 class CryptoCard extends ConsumerWidget {
-  MaterialColor favOFF = Colors.grey;
-  MaterialColor favON = Colors.yellow;
-  MaterialColor _testColor = Colors.grey;
-  final name;
-  final image;
-  final oneDay;
-  final oneMonth;
-  final oneYear;
-  final price;
-  final listFav;
-
   CryptoCard(
       {Key? key,
       required this.name,
@@ -27,9 +16,18 @@ class CryptoCard extends ConsumerWidget {
       required this.oneDay,
       required this.oneMonth,
       required this.oneYear,
-      required this.price,
-      required this.listFav})
+      required this.price})
       : super(key: key);
+
+  MaterialColor favOFF = Colors.grey;
+  MaterialColor favON = Colors.yellow;
+
+  final name;
+  final image;
+  final oneDay;
+  final oneMonth;
+  final oneYear;
+  final price;
 
   final List<Widget> _painters = <Widget>[];
   @override
@@ -38,34 +36,34 @@ class CryptoCard extends ConsumerWidget {
     var priceString = priceInt.toStringAsFixed(2);
     var flecheHaut = '↗️';
     var flecheBas = '↘️';
- 
 
-      String AfficheFleche(String index) {
-      var  indexInt =  double.parse(index);
+    String AfficheFleche(String index) {
+      var indexInt = double.parse(index);
       if (indexInt > 0) {
         return flecheHaut;
-      }else{
+      } else {
         return flecheBas;
       }
-  }
+    }
 
+    String extension(image) {
+      File file = new File(image);
+      String base = basename(file.path);
+      var laBase = base.split('.');
+      return laBase[1];
+    }
 
-  String extension(image){
-    File file = new File(image);
-  String base = basename(file.path);
-  var laBase = base.split('.');
-  return laBase[1];
-  }
-
-  afficheImage(images){
-     var type =  extension(images);
-        if (type == 'jpg' ||  type == 'png' || type == 'jpeg') {
-          return Image.network(images, height: 34,);
-       
-        } else{
-         return SvgPicture.network(images, height: 35);
-        }
-  }
+    afficheImage(images) {
+      var type = extension(images);
+      if (type == 'jpg' || type == 'png' || type == 'jpeg') {
+        return Image.network(
+          images,
+          height: 34,
+        );
+      } else {
+        return SvgPicture.network(images, height: 35);
+      }
+    }
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -83,7 +81,7 @@ class CryptoCard extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     afficheImage(image),
-                     Padding(
+                    Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(name,
                           style: const TextStyle(
@@ -97,8 +95,8 @@ class CryptoCard extends ConsumerWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
-                          children:  [
-                            Text('1d : '+ oneDay + AfficheFleche(oneDay),
+                          children: [
+                            Text('1d : ' + oneDay + AfficheFleche(oneDay),
                                 style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
@@ -138,41 +136,24 @@ class CryptoCard extends ConsumerWidget {
                       return IconButton(
                         icon: Icon(
                           Icons.favorite,
-                          color: _testColor,
+                          color: data.value.contains(name)
+                              ? favON
+                              : favOFF,
                         ),
                         tooltip: 'Add to favourite',
                         onPressed: () async {
-                          SharedPreferences prefs = await SharedPreferences.getInstance();
-                          var list = prefs.getStringList('listFav');
                           final preferences =
                               await StreamingSharedPreferences.instance;
-                          preferences.setString('favorites', name);
-                          if(list != null){
-                            for(var i=0;i<list.length;i++){
-                              if (list[i].contains(name) == true){
-                                // TODO
-                              }
-                            }
-                          }
-                          if (preferences != name &&
-                              _testColor == favOFF) {
-                            _testColor = favON;
-                            
-                            listFav.add(name + " true");
-                            prefs.setStringList('listFav', listFav);
-                      
+                          Preference<List<String>> preflist = preferences
+                              .getStringList('listFav', defaultValue: []);
+                          final List<String> list = preflist.getValue();
+                          if (list.indexOf(name) < 0) {
+                            list.add(name);
                           } else {
-                            if (preferences != name &&
-                                _testColor == favON) {
-                              _testColor = favOFF;
-                              
-                              listFav.remove(name + " true");
-                              prefs.setStringList('listFav', listFav);
-                            }
+                            list.remove(name);
                           }
-                          print(listFav);
+                          preferences.setStringList('listFav', list);
                           ref.refresh(favoritesProvider);
-                          prefs.getStringList('listFav');
                         },
                       );
                     },
@@ -185,6 +166,4 @@ class CryptoCard extends ConsumerWidget {
       ),
     );
   }
-
-  
 }
