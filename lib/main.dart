@@ -17,7 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(scaffoldBackgroundColor: Globals.primaryColor),
+      theme: ThemeData(
+          scaffoldBackgroundColor: Globals.primaryColor,
+          fontFamily: 'RobotoMono'),
       home: ProviderScope(child: Home()),
       routes: {
     '/details': (context) =>

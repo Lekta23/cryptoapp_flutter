@@ -22,11 +22,16 @@ class CryptoCard extends ConsumerWidget {
     required this.data,
   }) : super(key: key);
 
+
   final List<Widget> _painters = <Widget>[];
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+   MaterialColor favOFF = Colors.grey;
+  MaterialColor favON = Colors.yellow;
     var priceInt = double.parse(data.price);
     var priceString = priceInt.toStringAsFixed(2);
+    var oneYearDouble = double.parse(data.oneYear!.price_change_pct.toString());
+    var oneYearString = oneYearDouble.toStringAsFixed(2);
     var flecheHaut = '↗️';
     var flecheBas = '↘️';
     var name = data.name;
