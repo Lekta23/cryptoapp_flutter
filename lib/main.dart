@@ -16,15 +16,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-          scaffoldBackgroundColor: Globals.primaryColor,
-          fontFamily: 'NotoSans'),
-      home: ProviderScope(child: Home()),
-      routes: {
-    '/details': (context) =>
-        const Detail(),
-  }
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+            scaffoldBackgroundColor: Globals.primaryColor,
+            fontFamily: 'NotoSans'),
+        home: const ProviderScope(child: Home()),
+        routes: {
+          '/details': (context) => const Detail(),
+        });
   }
 }

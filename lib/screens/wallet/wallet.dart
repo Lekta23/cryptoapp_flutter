@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notreprojet/screens/home/localwidget/appbar.dart';
-import 'package:notreprojet/screens/home/localwidget/navbar.dart';
 import 'package:notreprojet/screens/wallet/localwidget/cryptowallet.dart';
-
-import '../../globals.dart';
 
 class Wallet extends StatefulWidget {
   const Wallet({Key? key}) : super(key: key);
@@ -21,7 +17,7 @@ class _WalletState extends State<Wallet> {
         width: double.infinity,
         child: Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
+          children: const [
             CryptoWallet(),
           ],
         ),

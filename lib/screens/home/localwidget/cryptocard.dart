@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, prefer_contains
+
 import 'dart:io';
 import 'package:notreprojet/model/currency.dart';
 import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
@@ -8,12 +10,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:notreprojet/providers/prefs.provider.dart';
 import 'package:path/path.dart';
 
-import '../../detail/detail.dart';
-
 class CryptoCard extends ConsumerWidget {
   MaterialColor favOFF = Colors.grey;
   MaterialColor favON = Colors.yellow;
-  MaterialColor _testColor = Colors.grey;
   final Currency data;
 
   CryptoCard({
@@ -21,7 +20,6 @@ class CryptoCard extends ConsumerWidget {
     required this.data,
   }) : super(key: key);
 
-  final List<Widget> _painters = <Widget>[];
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     MaterialColor favOFF = Colors.grey;
@@ -33,7 +31,6 @@ class CryptoCard extends ConsumerWidget {
     var flecheHaut = '↗️';
     var flecheBas = '↘️';
     var name = data.name;
-    List<String> listFav = [];
 
     String AfficheFleche(String index) {
       var indexInt = double.parse(index);
@@ -45,7 +42,7 @@ class CryptoCard extends ConsumerWidget {
     }
 
     String extension(image) {
-      File file = new File(image);
+      File file = File(image);
       String base = basename(file.path);
       var laBase = base.split('.');
       return laBase[1];

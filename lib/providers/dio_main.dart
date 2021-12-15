@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notreprojet/model/currency.dart';
@@ -30,15 +32,11 @@ Widget _OnError(error) {
 Widget _OnData(data) {
   final List<Currency> tab = data.value;
 
-  if (null == tab) {
+  if (tab == []) {
     return const Text('Impossible de charger les données');
   }
   return Wrap(
       alignment: WrapAlignment.spaceAround,
       crossAxisAlignment: WrapCrossAlignment.center,
-      children: tab
-          .map((data) => CryptoCard(
-              data: data
-              ))
-          .toList());
+      children: tab.map((data) => CryptoCard(data: data)).toList());
 }

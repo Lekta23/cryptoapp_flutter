@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../providers/dio_main.dart';
-import 'localwidget/cryptocard.dart';
 
 class Tab1 extends StatelessWidget {
   const Tab1({
