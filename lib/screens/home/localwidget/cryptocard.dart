@@ -57,16 +57,15 @@ class CryptoCard extends ConsumerWidget {
   return laBase[1];
   }
 
-  affichageImage(image){
-     var type =  extension(image);
-        if (type == 'jpg' ||  type == 'png') {
-          return Image.network(image, height: 50,);
+  afficheImage(images){
+     var type =  extension(images);
+        if (type == 'jpg' ||  type == 'png' || type == 'jpeg') {
+          return Image.network(images, height: 34,);
+       
         } else{
-          return SvgPicture.network(image, height: 50,);
+         return SvgPicture.network(images, height: 35);
         }
   }
-
-    
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -83,7 +82,7 @@ class CryptoCard extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    affichageImage(image),
+                    afficheImage(image),
                      Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(name,
@@ -113,7 +112,7 @@ class CryptoCard extends ConsumerWidget {
                                   fontWeight: FontWeight.w600,
                                 )),
                             const SizedBox(height: 4),
-                            Text('1 : ' + oneYear + AfficheFleche(oneYear),
+                            Text('1y : ' + oneYear + AfficheFleche(oneYear),
                                 style: const TextStyle(
                                   color: Globals.text1,
                                   fontSize: 16,
