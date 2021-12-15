@@ -12,9 +12,7 @@ class Tab1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SizedBox(
       width: double.infinity,
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: DioMain()
-        ),
-      );
-  }}
+      child: Padding(padding: EdgeInsets.all(8.0), child: DioMain()),
+    );
+  }
+}

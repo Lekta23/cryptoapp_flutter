@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notreprojet/globals.dart';
