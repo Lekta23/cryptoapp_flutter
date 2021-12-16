@@ -10,6 +10,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:notreprojet/providers/prefs.provider.dart';
 import 'package:path/path.dart';
 
+// ignore: must_be_immutable
 class CryptoCard extends ConsumerWidget {
   MaterialColor favOFF = Colors.grey;
   MaterialColor favON = Colors.yellow;
@@ -61,6 +62,7 @@ class CryptoCard extends ConsumerWidget {
     }
 
     return GestureDetector(
+
         onTap: () {
           _onTap(data, context);
         },

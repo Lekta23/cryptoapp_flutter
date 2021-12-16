@@ -53,7 +53,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         break;
       case 1:
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => ProfilePage()));
+            .push(MaterialPageRoute(builder: (context) => const ProfilePage()));
         break;
     }
   }

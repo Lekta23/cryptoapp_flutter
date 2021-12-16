@@ -3,8 +3,11 @@
 import '../../../globals.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class FloatingButton extends StatelessWidget {
   int _counter = 0;
+
+  FloatingButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../globals.dart';
 
+// ignore: camel_case_types
 class choose_number extends StatelessWidget {
   const choose_number({
     Key? key,

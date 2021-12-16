@@ -3,8 +3,11 @@ import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 
 import '../../globals.dart';
 
+// ignore: must_be_immutable
 class SettingsPage extends StatelessWidget {
   bool isSwitched = false;
+
+  SettingsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
