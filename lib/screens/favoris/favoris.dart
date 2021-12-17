@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:notreprojet/globals.dart';
 import 'package:notreprojet/providers/prefs.provider.dart';
-import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
 
 class Favoris extends ConsumerWidget {
   const Favoris({Key? key}) : super(key: key);
