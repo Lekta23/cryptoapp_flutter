@@ -23,25 +23,11 @@ class Favoris extends ConsumerWidget {
         return Card(
           color: Colors.grey,
           child: ListTile(
-            leading: IconButton(
-              icon: const Icon(
-                Icons.favorite,
-                color: Globals.buttonColor,
-              ),
-              tooltip: 'Add to favourite',
-              onPressed: () async {
-                final preferences = await StreamingSharedPreferences.instance;
-                Preference<List<String>> preflist =
-                    preferences.getStringList('listFav', defaultValue: []);
-                final List<String> list = preflist.getValue();
-                list.remove(value[index]);
-                preferences.setStringList('listFav', list);
-              },
+            leading: 
+            const Icon(
+              Icons.favorite,
+              color: Colors.yellow,
             ),
-            // const Icon(
-            //   Icons.favorite,
-            //   color: Colors.yellow,
-            // ),
             title: Text(value[index]),
             trailing: const Icon(Icons.keyboard_arrow_right),
           ),
