@@ -1,26 +1,26 @@
+// ignore_for_file: unused_field
 
-import 'package:notreprojet/screens/home/home.dart';
 import '../../../globals.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class FloatingButton extends StatelessWidget {
- 
   int _counter = 0;
-   void _incrementCounter() {
-      _counter++;
-  }
- 
+
+  FloatingButton({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {  
-      return FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-        backgroundColor: Globals.secondaryColor,// This trailing comma makes auto-formatting nicer for build methods.
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: _incrementCounter,
+      tooltip: 'Increment',
+      child: const Icon(Icons.add),
+      backgroundColor: Globals
+          .secondaryColor, // This trailing comma makes auto-formatting nicer for build methods.
     );
-    
   }
 
-
+  void _incrementCounter() {
+    _counter++;
+  }
 }

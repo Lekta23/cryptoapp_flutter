@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import '../../globals.dart';
 
-
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
@@ -28,12 +28,10 @@ class ProfilePage extends StatelessWidget {
                         width: double.infinity,
                         child: Container(
                           alignment: const Alignment(0.0, 2.5),
-                          child: CircleAvatar(
-                            radius: 50,
-                            child: ClipRRect(
-                              child: Image.asset('profileimage/cafe.jpg',),
-                              borderRadius: BorderRadius.circular(50),),
-                        
+                          child: const CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/profileimage/cafe.jpg'),
+                            radius: 60.0,
                           ),
                         ),
                       ),
@@ -66,12 +64,10 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(Globals.buttonColor)
-                            ),
-                            
-                            onPressed: (){
-                              const url = 'https://flutter.io';
-                            },
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Globals.buttonColor)),
+                            onPressed: () {},
                             child: Container(
                               constraints: const BoxConstraints(
                                 maxWidth: 100.0,
@@ -110,7 +106,8 @@ class ProfilePage extends StatelessWidget {
                         child: Container(
                           alignment: const Alignment(0.0, 2.5),
                           child: const CircleAvatar(
-                            backgroundImage: AssetImage('assets/profileimage/cafe.jpg'),
+                            backgroundImage:
+                                AssetImage('assets/profileimage/cafe.jpg'),
                             radius: 60.0,
                           ),
                         ),
@@ -144,11 +141,10 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(Globals.buttonColor)
-                            ),
-                            onPressed: (){
-                              const url = 'https://flutter.io';
-                            },
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Globals.buttonColor)),
+                            onPressed: () {},
                             child: Container(
                               constraints: const BoxConstraints(
                                 maxWidth: 100.0,
@@ -187,7 +183,8 @@ class ProfilePage extends StatelessWidget {
                         child: Container(
                           alignment: const Alignment(0.0, 2.5),
                           child: const CircleAvatar(
-                            backgroundImage: AssetImage('assets/profileimage/cafe.jpg'),
+                            backgroundImage:
+                                AssetImage('assets/profileimage/cafe.jpg'),
                             radius: 60.0,
                           ),
                         ),
@@ -221,11 +218,10 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(Globals.buttonColor)
-                            ),
-                            onPressed: () {
-                              const url = 'https://flutter.io';
-                            },
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Globals.buttonColor)),
+                            onPressed: () {},
                             child: Container(
                               constraints: const BoxConstraints(
                                 maxWidth: 100.0,

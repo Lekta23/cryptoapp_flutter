@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../globals.dart';
 
+// ignore: camel_case_types
 class choose_number extends StatelessWidget {
   const choose_number({
     Key? key,
@@ -16,14 +17,14 @@ class choose_number extends StatelessWidget {
             onPressed: null,
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.blue)),
-            child: Text(
+            child: const Text(
               '-',
               style: TextStyle(color: Colors.white, fontSize: 22),
             )),
-        SizedBox(
+        const SizedBox(
           width: 98,
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
                 filled: true,
@@ -38,7 +39,7 @@ class choose_number extends StatelessWidget {
             onPressed: null,
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.blue)),
-            child: Text(
+            child: const Text(
               '+',
               style: TextStyle(color: Colors.white, fontSize: 22),
             )),

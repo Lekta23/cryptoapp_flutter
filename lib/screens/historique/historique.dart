@@ -5,8 +5,6 @@ class Historique extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: const Text('Historique')
-    );
+    return const Text('Historique');
   }
 }

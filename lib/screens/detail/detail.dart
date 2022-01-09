@@ -1,15 +1,48 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:notreprojet/screens/shared/choose_number.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:notreprojet/model/currency.dart';
+import 'package:notreprojet/screens/home/localwidget/appbar.dart';
+import 'package:path/path.dart';
 
 import '../../globals.dart';
 
-class Detail extends StatelessWidget {
+class Detail extends ConsumerWidget {
   const Detail({Key? key}) : super(key: key);
 
+  String extension(image) {
+    File file = File(image);
+    String base = basename(file.path);
+    var laBase = base.split('.');
+    return laBase[1];
+  }
+
+  afficheImage(images) {
+    var type = extension(images);
+    if (type == 'jpg' || type == 'png' || type == 'jpeg') {
+      return Image.network(
+        images,
+        height: 60,
+      );
+    } else {
+      return SvgPicture.network(images, height: 60);
+    }
+  }
+
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final Currency args =
+        ModalRoute.of(context)!.settings.arguments as Currency;
+    var priceInt = double.parse(args.price);
+    var priceString = priceInt.toStringAsFixed(2);
+
+    return Scaffold(
+      appBar: MyAppBar(
+          titre: Text(args.name.toUpperCase()),
+          backgroundColor: Globals.secondaryColor),
+      body: Center(
         child: Column(
           children: [
             Image.network(
@@ -18,27 +51,25 @@ class Detail extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Image.network(
-                      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png",
-                      height: 60),
+                  afficheImage(args.logo_url),
                   const SizedBox(width: 16),
-                  const Text('Bitcoin',
-                      style: TextStyle(
+                  Text(args.name,
+                      style: const TextStyle(
                           color: Globals.text1,
                           fontSize: 24,
                           fontWeight: FontWeight.w700)),
                   const SizedBox(width: 8),
-                  const Text('(N°1)',
-                      style: TextStyle(
+                  Text('N° ' + args.rank.toString(),
+                      style: const TextStyle(
                           color: Globals.text1,
                           fontSize: 18,
                           fontWeight: FontWeight.w700)),
                 ],
               ),
             ),
-            const Center(
-              child: Text('1 7988 €',
-                  style: TextStyle(
+            Center(
+              child: Text(priceString + ' USD',
+                  style: const TextStyle(
                       color: Globals.text1,
                       fontSize: 24,
                       fontWeight: FontWeight.w700)),
@@ -52,6 +83,7 @@ class Detail extends StatelessWidget {
           ],
         ),
       ),
+      backgroundColor: null,
     );
   }
 }

@@ -38,6 +38,8 @@ dependencies:
   babstrap_settings_screen : "^0.1.1"
   streaming_shared_preferences: ^2.0.0
 
+  shared_preferences: ^2.0.9
+
  
   
 dev_dependencies:
@@ -46,6 +48,7 @@ dev_dependencies:
   
   json_serializable: ^6.1.0
   url_launcher: ^6.0.15
+  image: ^3.1.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -68,6 +71,16 @@ flutter:
   assets:
     - assets/profileimage/
     - assets/languageimg/
+  fonts:
+    - family: NotoSans
+      fonts: 
+        - asset: fonts/NotoSans-Regular.ttf
+    - family: RobotoMono
+      fonts: 
+        - asset: fonts/RobotoMonoMedium.ttf
+    - family: Ubuntu
+      fonts: 
+        - asset: fonts/Ubuntu-Regular.ttf
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

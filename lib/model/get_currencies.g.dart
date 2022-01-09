@@ -8,8 +8,8 @@ part of 'get_currencies.dart';
 
 GetCurrencies _$GetCurrenciesFromJson(Map<String, dynamic> json) =>
     GetCurrencies(
-      (json['data'] as List<dynamic>)
-          .map((e) => Currency.fromJson(e as Map<String, dynamic>))
+      (json['data'] as List<dynamic>?)
+          ?.map((e) => Currency.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
