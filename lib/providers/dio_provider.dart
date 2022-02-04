@@ -8,11 +8,6 @@ import 'package:notreprojet/providers/dio.dart';
 import '../assets/key.dart' as constants;
 
 final testDioProvider = FutureProvider<List<Currency>?>((ref) async {
-  // const code = '589bcce3fe770609a6a9a3cd1992269c513bdf58';
-
-  
-
-
 
   final Dio dio = ref.read(dioProvider);
   try {
